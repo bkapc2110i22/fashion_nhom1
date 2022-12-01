@@ -4,32 +4,62 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 class ProductController extends Controller
 {
-    public function index(){
-        $prod = Product::get();
-        return view('product.index',compact('prod'));
-    }
-    public function create(){
-        $prod = Product::get();
-        return view('product.create');
-    }
-    public function store(Request $request){
-        Product::create($request->all());
-        return redirect()->route('product.index');
-    }
-    public function delete($id){
-        Product::where('id',$id)->delete();
-        return redirect()->route('product.index');
-    }
-    public function update($id,Request $request){
-        Product::where('id',$id)->update($request->only('name','image','price','sale_price'
-        ,'content','status','category_id'));
-        return redirect()->route('product.index');
-    }
-    public function edit($id){
-        $prod = Product::find($id);
-        return view('product.edit',compact('prod'));
+    public function index()
+    {
+        $product = Product::orderBy('id','DESC')->paginate(); 
+        return view('product.index', compact('product'));
     }
 
+    public function create()
+    {
+        $cats = Category::orderBy('name','ASC')->get();
+        return view('product.create', compact('cats'));
+    }
+
+    public function store(Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'sale_price' => 'required|numeric|lte:price',
+            'upload' => 'required|mimes:jpg,jpeg,png,gif',
+        ]);
+
+        $form_data = $req->only('name','price','sale_price','status','content','category_id');
+        $file_name = $req->upload->getClientOriginalName();
+        $req->upload->move(public_path('uploads'), $file_name);
+        $form_data['image'] = $file_name;
+        product::create($form_data);
+        return redirect()->route('product.index')->with('yes','Thêm mới thành công...');;
+    }
+
+    public function edit (Product $product)
+    {
+        $cats = Category::orderBy('name','ASC')->get();
+        return view('product.edit', compact('cats','product'));
+    }
+    public function update(Product $product, Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'sale_price' => 'required|numeric|lte:price',
+            'upload' => 'mimes:jpg,jpeg,png,gif',
+        ]);
+
+        $form_data = $req->only('name','image','price',
+        'sale_price','content','created_at','updated_at'
+        ,'status','category_id');
+        if ($req->has('upload')) {
+            $file_name = $req->upload->getClientOriginalName();
+            $req->upload->move(public_path('uploads'), $file_name);
+            $form_data['image'] = $file_name;
+        }
+        
+        $product->update($form_data);
+        return redirect()->route('product.index')->with('yes','Cập nhật thành côngc...');;
+    }
 }
