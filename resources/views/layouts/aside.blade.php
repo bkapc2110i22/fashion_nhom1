@@ -51,20 +51,18 @@
                     </li>
                 </ul>
             </li>
-
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i> <span>Quản trị viên</span> <i
+                    <i class="fa fa-th"></i> <span>Banner</span> <i
                         class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                    <li><a href="{{ route('banner.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
                     </li>
-                    <li><a href="{{ route('user.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                    <li><a href="{{ route('banner.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
                     </li>
                 </ul>
             </li>
-
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-th"></i> <span>Blogs</span> <i
@@ -74,6 +72,18 @@
                     <li><a href="{{ route('blog.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
                     </li>
                     <li><a href="{{ route('blog.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>Quản trị viên</span> <i
+                        class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                    </li>
+                    <li><a href="{{ route('user.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
                     </li>
                 </ul>
             </li>

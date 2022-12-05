@@ -5,7 +5,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,11 +67,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('/restore/{id}', [CategoryController::class, 'restore'])->name('category.restore');
         Route::get('/forceDelete/{id}', [CategoryController::class, 'forceDelete'])->name('category.forceDelete');
     });
+    Route::group(['prefix' => 'product'], function() {
+        Route::get('/forceDelete/{id}', [ProductController::class, 'forceDelete'])->name('product.forceDelete');
+    });
     
     Route::resources([
         'category' =>  CategoryController::class,
         'product' =>  ProductController::class,
         'blog' =>  BlogController::class,
+        'banner' =>  BannerController::class,
         'user' =>  App\Http\Controllers\UserController::class,
     ]);
 

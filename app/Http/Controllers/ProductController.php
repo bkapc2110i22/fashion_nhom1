@@ -62,4 +62,17 @@ class ProductController extends Controller
         $product->update($form_data);
         return redirect()->route('product.index')->with('yes','Cập nhật thành côngc...');;
     }
+    public function forceDelete($id)
+    {
+        try {
+            // truy vấn lấy ra sản phẩm đã xóa theo id
+            $product_delete = Product::find($id);
+
+            //  xóa khỏi database 
+            $product_delete->forceDelete();
+            return redirect()->back()->with('yes','Xoá thành công...');
+        } catch (\Throwable $th) {
+            // return redirect()->back()->with('no','Không thành công...');
+        }
+    }
 }

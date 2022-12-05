@@ -48,7 +48,7 @@ class CategoryController extends Controller
             $category_restore->forceDelete();
             return redirect()->back()->with('yes','Xoá thành công...');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('no','Không thành công do số lượng SP lớn hơn 1, vui lòng nhấn khôi phục để xoá sản phẩm...');
+            return redirect()->back()->with('no','Không thành công do số lượng SP > 0, vui lòng nhấn khôi phục để xoá sản phẩm...');
         }
     }
     public function store(Request $req)

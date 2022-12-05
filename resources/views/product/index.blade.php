@@ -50,7 +50,7 @@
             <td>
                 <a href="{{ route('product.edit', $products->id) }}" class="btn btn-sm btn-primary">
                 <i class="fa fa-edit"></i> Sửa</a>
-                <a href="{{ route('product.destroy', $products->id) }}" class="btn btn-sm btn-primary">X</a>
+                <a href="{{route('product.forceDelete',$products->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Ban muon xoa ko')">X</a>
             </td>
         </tr>
         @endforeach
