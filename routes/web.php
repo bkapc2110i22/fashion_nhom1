@@ -22,30 +22,15 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/blog-details', function () {
-    return view('blog-details');
-});
-Route::get('/product-details', function () {
-    return view('product-details');
-});
-Route::get('/blog', function () {
-    return view('blog');
-});
-Route::get('/checkout', function () {
-    return view('checkout');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/shop-cart', function () {
-    return view('shop-cart');
-});
-Route::get('/shop', function () {
-    return view('shop');
-});
+Route::get('blog', [HomeController::class, 'blog'])->name('home.blog');
+Route::get('blog-details', [HomeController::class, 'blog_details'])->name('home.blog-details');
+Route::get('checkout', [HomeController::class, 'checkout'])->name('home.checkout');
+Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');
+Route::get('', [HomeController::class, 'index'])->name('home.index');
+Route::get('main', [HomeController::class, 'main'])->name('home.main');
+Route::get('product-details', [HomeController::class, 'product_details'])->name('home.product-details');
+Route::get('shop-cart', [HomeController::class, 'shop_cart'])->name('home.shop-cart');
+Route::get('shop', [HomeController::class, 'shop'])->name('home.shop');
 
 // Route::get('product',[ProductController::class,'index'])->name('product.index');
 // Route::get('product/create',[ProductController::class,'create'])->name('product.create');

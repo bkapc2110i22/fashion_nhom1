@@ -28,7 +28,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="{{url('assets')}}/index2.html" class="logo">
+            <a href="{{route('admin.index')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -39,9 +39,6 @@
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </a>
 
                 <div class="navbar-custom-menu">
@@ -110,11 +107,6 @@
                 <h1>
                     @yield('title')
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Examples</a></li>
-                    <li class="active">Blank page</li>
-                </ol>
             </section>
 
             <!-- Main content -->

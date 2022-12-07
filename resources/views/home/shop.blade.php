@@ -1,6 +1,9 @@
-@{
+@extends('layouts.master')
+@section('title','SỨ MỆNH ASHION')
+@section('main')
+<!-- @{
     ViewBag.Title = "SỨ MỆNH";
-}
+} -->
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/Assets/images/bg_1.jpg');">
     <div class="overlay"></div>
     <div class="container">
@@ -49,3 +52,4 @@
         </div>
     </div>
 </section>
+@stop
