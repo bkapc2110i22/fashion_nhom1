@@ -488,7 +488,7 @@
                 <div class="discount__text">
                     <div class="discount__text__title">
                         <span>Discount</span>
-                        <h2>Summer 2019</h2>
+                        <h2>Summer 2022</h2>
                         <h5><span>Sale</span> 50%</h5>
                     </div>
                     <div class="discount__countdown" id="countdown-time">
@@ -525,7 +525,7 @@
                 <div class="services__item">
                     <i class="fa fa-car"></i>
                     <h6>Free Shipping</h6>
-                    <p>For all oder over $99</p>
+                    <p>For all order over $99</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">

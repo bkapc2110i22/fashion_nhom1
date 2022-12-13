@@ -34,4 +34,10 @@ class HomeController extends Controller
     public function shop(){
         return view('home.shop');
     }
+    public function login(){
+        return view('home.login');
+    }
+    public function register(){
+        return view('home.register');
+    }
 }

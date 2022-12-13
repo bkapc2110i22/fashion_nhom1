@@ -31,6 +31,8 @@ Route::get('main', [HomeController::class, 'main'])->name('home.main');
 Route::get('product-details', [HomeController::class, 'product_details'])->name('home.product-details');
 Route::get('shop-cart', [HomeController::class, 'shop_cart'])->name('home.shop-cart');
 Route::get('shop', [HomeController::class, 'shop'])->name('home.shop');
+Route::get('register', [HomeController::class, 'register'])->name('home.register');
+Route::get('login', [HomeController::class, 'login'])->name('home.login');
 
 // Route::get('product',[ProductController::class,'index'])->name('product.index');
 // Route::get('product/create',[ProductController::class,'create'])->name('product.create');

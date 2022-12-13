@@ -28,52 +28,60 @@
         <ul class="sidebar-menu">
             <li><a href="{{ route('admin.index') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Sản phẩm</span> <i
-                        class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
-                    </li>
-                    <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
-                    </li>
-                </ul>
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Sản phẩm</span> <i
+                                class="fa fa-angle-left pull-right"></i>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                                </li>
+                                <li><a href="{{ route('product.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                                </li>
+                            </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Danh mục</span> <i
+                    <i class="fa fa-th-list"></i> <span>Web người dùng</span> <i
                         class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
-                    </li>
-                    <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-th"></i> <span>Banner</span> <i
-                        class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('banner.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
-                    </li>
-                    <li><a href="{{ route('banner.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-th"></i> <span>Blogs</span> <i
-                        class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('blog.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
-                    </li>
-                    <li><a href="{{ route('blog.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
-                    </li>
-                </ul>
+        <ul class="treeview-menu">
+                        <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-circle"></i> <span>Banner</span> <i
+                                        class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="{{ route('banner.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                                    </li>
+                                    <li><a href="{{ route('banner.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-circle"></i> <span>Danh mục</span> <i
+                                        class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                                    </li>
+                                    <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-circle"></i> <span>Blogs</span> <i
+                                        class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="{{ route('blog.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
+                                    </li>
+                                    <li><a href="{{ route('blog.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                                    </li>
+                                </ul>
+                        </li>
+        </ul>
             </li>
             <li class="treeview">
                 <a href="#">

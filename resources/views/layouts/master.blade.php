@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{url('')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('')}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('')}}/css/style.css" type="text/css">
+    <!-- bs3 -->
+    <link rel="stylesheet" href="{{url('')}}/css/bootstrap3.min.css" type="text/css">
 </head>
 
 <body>
@@ -45,7 +47,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="{{url('')}}/img/logo.png" alt=""></a>
+            <a href="{{route('home.index')}}"><img src="{{url('')}}/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
@@ -71,7 +73,7 @@
                             <li><a href="{{route('home.index')}}">Women’s</a></li>
                             <li><a href="{{route('home.index')}}">Men’s</a></li>
                             <li><a href="{{route('home.index')}}">Shop</a></li>
-                            <li><a href="{{route('home.index')}}">Pages</a>
+                            <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('home.product-details')}}">Product Details</a></li>
                                     <li><a href="{{route('home.shop-cart')}}">Shop Cart</a></li>
@@ -87,8 +89,8 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="#">Login</a>
-                            <a href="#">Register</a>
+                            <a href="{{route('home.login')}}">Login</a>
+                            <a href="{{route('home.register')}}">Register</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
@@ -261,6 +263,8 @@
 <script src="{{url('')}}/js/owl.carousel.min.js"></script>
 <script src="{{url('')}}/js/jquery.nicescroll.min.js"></script>
 <script src="{{url('')}}/js/main.js"></script>
-</body>
-
+<!-- jQuery -->
+<script src="{{url('')}}/js/jquery.min.js"></script>
+<!-- Bootstrap Js -->
+<script src="{{url('')}}/js/bootstrap3.min.js"></script>
 </html>
