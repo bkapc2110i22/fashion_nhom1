@@ -2,7 +2,7 @@
 @section('title','Quản lý danh mục')
 @section('main')
 
-<h2>Danh mục</h2>
+<h2>Danh mục (Kid, Men, Accessories,Cosmetic,Women)</h2>
 <form action="{{ route('category.store') }}" method="POST" role="form">
     @csrf
     <div class="form-group">
@@ -31,8 +31,6 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <hr>
-
-<a class="btn btn-info" href="{{route('category.trashed')}}">Thung rac</a>
 <!-- FORM TÌM KIẾM  -->
 <form action="" method="get" class="form-inline">
 
@@ -58,24 +56,27 @@
             <th>Name</th>
             <th>Status</th>
             <th>Total Product</th>
-            <th></th>
+            <th>Input button</th>
         </tr>
     </thead>
     <tbody>
         @foreach($cats as $cat)
         <tr>
             <td>{{$cat->id}}</td>
-            <td>{{$cat->name}}</td>
+            <td>{{ucfirst($cat->name)}}</td>
             <td>{{$cat->status == 0 ? 'Ẩn' : 'Hiển thị'}}</td>
             <td>{{$cat->products->count()}}</td>
             <td>
+                @if($cat->products->count() < 1)
                 <form action="{{route('category.destroy', $cat->id)}}" method="POST">
                     @csrf @method("DELETE")
                     <button class="btn btn-sm btn-danger"
                         onclick="return confirm('bạn có muốn xóa không?')">Xóa</button>
                     <a class="btn btn-sm btn-success" href="{{route('category.edit', $cat->id)}}">Sửa</a>
                 </form>
-
+                @else
+                <p>Quantity product is more than one or more</p>
+                @endif
             </td>
         </tr>
         @endforeach

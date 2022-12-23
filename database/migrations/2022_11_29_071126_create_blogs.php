@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
-            $table->string('image', 150);
             $table->string('desc',200);
             $table->text('content');
+            $table->string('image', 150);
             $table->tinyInteger('status')->default(1);
+            $table->date('deleted_at')->nullable();
             $table->timestamps();
         });
     }

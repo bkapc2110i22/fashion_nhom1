@@ -53,7 +53,10 @@ class CategoryController extends Controller
     }
     public function store(Request $req)
     {
-        $form_data = $req->all('name','status');
+        $req->validate([
+            'name' => 'required|alpha_dash'
+        ]);
+        $form_data = $req->only('name','status');
         Category::create($form_data);
         return redirect()->route('category.index')->with('yes','Thêm mới thành công...');;
     }

@@ -15,4 +15,11 @@ class Product extends Model
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
+    public function scopeSearch($query)
+    {
+        $keyword = request('keyword');
+        $orderBy = request('orderByName','ASC');
+        $query = $query->where('name','LIKE','%'.$keyword.'%')->orderBy('name', $orderBy);
+        return $query;
+    }
 }

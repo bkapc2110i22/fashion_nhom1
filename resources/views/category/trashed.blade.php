@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Quản lý danh mục')
+@section('title','Thùng rác danh mục')
 @section('main')
 <h2>Danh mục</h2>
 
@@ -71,7 +71,7 @@
             <td>{{$cat->products->count()}}</td>
             <td>
                <a href="{{route('category.restore',$cat->id)}}" class="btn btn-success">Khôi phục</a>
-               <a href="{{route('category.forceDelete',$cat->id)}}" class="btn btn-danger" onclick="return confirm('Ban muon xia ko')">Xóa</a>
+               <a href="{{route('category.forceDelete',$cat->id)}}" class="btn btn-danger" onclick="return confirm('Ban muon xoa ko')">Xóa</a>
             </td>
         </tr>
         @endforeach

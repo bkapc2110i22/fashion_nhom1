@@ -13,7 +13,7 @@
             </div>
         </div>
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
+        <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
@@ -22,7 +22,7 @@
                     </button>
                 </span>
             </div>
-        </form>
+        </form> -->
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
@@ -55,6 +55,8 @@
                                     </li>
                                     <li><a href="{{ route('banner.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
                                     </li>
+                                    <li><a href="{{ route('banner.trashed') }}"><i class="fa fa-circle-o"></i> Thung rac</a>
+                                    </li>
                                 </ul>
                         </li>
                         <li class="treeview">
@@ -67,6 +69,8 @@
                                     </li>
                                     <li><a href="{{ route('category.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
                                     </li>
+                                    <li><a href="{{ route('category.trashed') }}"><i class="fa fa-circle-o"></i> Thùng rác</a>
+                                    </li>
                                 </ul>
                         </li>
                         <li class="treeview">
@@ -78,6 +82,8 @@
                                     <li><a href="{{ route('blog.index') }}"><i class="fa fa-circle-o"></i> Danh sách</a>
                                     </li>
                                     <li><a href="{{ route('blog.create') }}"><i class="fa fa-circle-o"></i> Thêm mới</a>
+                                    </li>
+                                    <li><a href="{{ route('blog.trashed') }}"><i class="fa fa-circle-o"></i> Thùng rác</a>
                                     </li>
                                 </ul>
                         </li>

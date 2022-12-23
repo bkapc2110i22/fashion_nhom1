@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $product = Product::orderBy('id','DESC')->paginate(); 
+        $product = Product::search()->paginate(3); 
         return view('product.index', compact('product'));
     }
 
@@ -24,7 +24,7 @@ class ProductController extends Controller
         $req->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            'sale_price' => 'required|numeric|lte:price',
+            'sale_price' => 'numeric|lte:price|nullable',
             'upload' => 'required|mimes:jpg,jpeg,png,gif',
         ]);
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $req->validate([
             'name' => 'required',
             'price' => 'required|numeric',
-            'sale_price' => 'required|numeric|lte:price',
+            'sale_price' => 'numeric|lte:price|nullable',
             'upload' => 'mimes:jpg,jpeg,png,gif',
         ]);
 

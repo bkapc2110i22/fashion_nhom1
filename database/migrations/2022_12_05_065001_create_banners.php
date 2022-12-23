@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 30);
+            $table->string('title',20);
+            $table->string('name',20);
+            $table->date('deleted_at')->nullable();
             $table->timestamps();
         });
     }

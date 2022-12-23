@@ -10,7 +10,6 @@
     <div class="form-group">
         <label class="sr-only" for="">Tên danh mục</label>
         <input class="form-control" name="name" value="{{$category->name}}">
-        @error('name') <div>{{$message}}</div> @enderror
     </div>
 
     <div class="form-group">

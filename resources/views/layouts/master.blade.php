@@ -38,13 +38,12 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span>
+                                <div class="tip">0</div>
+                            </a></li>
+                            <li><a href="{{ route('cart.view') }}"><span class="icon_bag_alt"></span>
+                                <div class="tip">{{$cart->totalQuantity}}</div>
+                            </a></li>
         </ul>
         <div class="offcanvas__logo">
             <a href="{{route('home.index')}}"><img src="{{url('')}}/img/logo.png" alt=""></a>
@@ -69,13 +68,9 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{route('home.index')}}">Home</a></li>
-                            <li><a href="{{route('home.index')}}">Women’s</a></li>
-                            <li><a href="{{route('home.index')}}">Men’s</a></li>
-                            <li><a href="{{route('home.index')}}">Shop</a></li>
+                            <li><a href="{{route('home.index')}}">Home</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="{{route('home.product-details')}}">Product Details</a></li>
                                     <li><a href="{{route('home.shop-cart')}}">Shop Cart</a></li>
                                     <li><a href="{{route('home.checkout')}}">Checkout</a></li>
                                     <li><a href="{{route('home.blog-details')}}">Blog Details</a></li>
@@ -83,23 +78,37 @@
                             </li>
                             <li><a href="{{route('home.blog')}}">Blog</a></li>
                             <li><a href="{{route('home.contact')}}">Contact</a></li>
+                            <li><a href="#">Category</a>
+                                <ul class="dropdown">
+                                @foreach($globalCats as $cat)
+                    <li><a href="{{route('home.category', ['category'=> $cat->id, 'slug' => Str::slug($cat->name)])}}">{{$cat->name}}</a></li>
+                                @endforeach
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
+                    @if (!auth('cus')->check())
                             <a href="{{route('home.login')}}">Login</a>
                             <a href="{{route('home.register')}}">Register</a>
+
+                    @else
+                            <a>Hi: {{auth('cus')->user()->name}}</a>
+                            <a href="{{ route('home.logout') }}">Logout</a>
+                    @endif
                         </div>
                         <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
+                            <!-- <li><span class="icon_search search-switch"></span></li> -->
                             <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
+                                <div class="tip">0</div>
                             </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+                            <li><a href="{{ route('cart.view') }}"><span class="icon_bag_alt"></span>
+                                <div class="tip">{{$cart->totalQuantity}}</div>
                             </a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -111,6 +120,21 @@
     </header>
     <!-- Header Section End -->
 <!-- Services Section End -->
+<div class="container">
+    <br>
+        @if (Session::has('no'))
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>{{Session::get('no')}}!</strong>
+        </div>
+        @endif
+        @if (Session::has('yes'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>{{Session::get('yes')}}!</strong>
+        </div>
+        @endif
+    </div>
 @yield('main')
 <!-- Instagram Begin -->
 <div class="instagram">

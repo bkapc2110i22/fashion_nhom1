@@ -38,7 +38,7 @@
     <div class="form-group">
         <label  for="">Nội dung</label>
         
-        <textarea name="content" class="form-control" >{{$product->name}}</textarea>
+        <textarea name="content" class="form-control" >{{$product->content}}</textarea>
         
         @error('content') <div>{{$message}}</div> @enderror
     </div>

@@ -17,6 +17,15 @@
     <!-- Breadcrumb End -->
 
     <!-- Shop Cart Section Begin -->
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Giỏ hàng của bạn</h2>
+        </div>
+        <div class="col-md-6">
+        <h2>Tổng tiền: $ {{ $cart->totalAmount}}</h2>
+        </div>
+</div>
     <section class="shop-cart spad">
         <div class="container">
             <div class="row">
@@ -30,14 +39,15 @@
                                     <th>Quantity</th>
                                     <th>Total</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                            <tr>@foreach($cart->items as $item)
                                     <td class="cart__product__item">
-                                        <img src="{{url('')}}/img/shop-cart/cp-1.jpg" alt="">
+                                        <img src="{{url('uploads')}}/{{$item->image}}" alt="" width="100">
                                         <div class="cart__product__item__title">
-                                            <h6>Chain bucket bag</h6>
+                                            <h6>{{$item->name}}</h6>
                                             <div class="rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -47,84 +57,25 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">$ 150.0</td>
+                                    <td class="cart__price">$ {{$item->price}}</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="1">
+                                        <form action="{{ route('cart.update', $item->id) }}" method="get">
+                                        <input type="text" name="quantity" value="{{$item->quantity}}"
+                                        style="width:60px; text-align:center">
+                                        
                                         </div>
                                     </td>
-                                    <td class="cart__total">$ 300.0</td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                </tr>
-                                <tr>
-                                    <td class="cart__product__item">
-                                        <img src="{{url('')}}/img/shop-cart/cp-2.jpg" alt="">
-                                        <div class="cart__product__item__title">
-                                            <h6>Zip-pockets pebbled tote briefcase</h6>
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
+                                    <td class="cart__total">$ {{$item->quantity * $item->price}}</td>
+                                    <td class="cart__close">
+                                    <a href=""><button style="background:transparent; border:none" type="submit">
+                                    <span class="icon_loading"></span></button></a>
                                     </td>
-                                    <td class="cart__price">$ 170.0</td>
-                                    <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart__total">$ 170.0</td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                </tr>
-                                <tr>
-                                    <td class="cart__product__item">
-                                        <img src="{{url('')}}/img/shop-cart/cp-3.jpg" alt="">
-                                        <div class="cart__product__item__title">
-                                            <h6>Black jean</h6>
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 85.0</td>
-                                    <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart__total">$ 170.0</td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                </tr>
-                                <tr>
-                                    <td class="cart__product__item">
-                                        <img src="{{url('')}}/img/shop-cart/cp-4.jpg" alt="">
-                                        <div class="cart__product__item__title">
-                                            <h6>Cotton Shirt</h6>
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 55.0</td>
-                                    <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart__total">$ 110.0</td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                </tr>
+                                    <td class="cart__close"><a href="{{ route('cart.remove', $item->id) }}" 
+                                    onclick="return confirm('Bạn có chắc không?')">
+                                    <span class="icon_close"></span></a></td>
+                                </tr></form>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -133,12 +84,11 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="#">Continue Shopping</a>
+                        <a href="{{route('home.index')}}">Continue Shopping</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn update__btn">
-                        <a href="#"><span class="icon_loading"></span> Update cart</a>
                     </div>
                 </div>
             </div>

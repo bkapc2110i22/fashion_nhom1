@@ -10,7 +10,7 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable = ['name','status'];
+    protected $fillable = ['name','status','created_at','updated_at'];
 
     // product 1 - 1 category 
     public function products()
